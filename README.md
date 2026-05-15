@@ -1,5 +1,5 @@
 USTH Image Processing 2026
 ===================================
 
-* Your name
-* Your student ID
+* Your name         Vu Minh Chau
+* Your student ID   
