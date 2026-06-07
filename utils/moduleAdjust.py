@@ -1,5 +1,6 @@
 import numpy as np
 
+
 # Histogram
 def manual_cal_hist(image):
     hist = np.zeros(256, dtype = np.uint32)
@@ -12,12 +13,14 @@ def normalization(image):
     h, w = image.shape[:2]
     return manual_cal_hist(image) / (h * w)
 
+"""
 # CDF
 # def cdf(image):
 #     hist = normalization(image)
 #     for i in range(1, 256):
 #         hist[i] = hist[i] + hist[i - 1]
 #     return hist
+"""
 def cdf(image):
     return np.cumsum(normalization(image))
 
@@ -41,7 +44,7 @@ def bw(image, t):
 def transform(image, a, b):
     val = a * image.astype(np.float32) + b
     return np.clip(val, 0, 255).astype(np.uint8)
-
+""" 
 # không dùng cách này OVERFLOW !
 # def transform(image, a, b):
 #     image_new = np.zeros(image.shape, dtype=np.uint8)
@@ -50,11 +53,11 @@ def transform(image, a, b):
 #             val = a * img[i, j] + b            
 #             image_new[i, j] = np.clip(val, 0, 255)
 #     return image_new
+"""
 
 # negative image
 def negative(r):
     return 255 - r
-
 def negative_img(image):
     img_neg = np.zeros((image.shape[0], image.shape[1]), dtype = np.uint8)
     for i in range(image.shape[0]):
@@ -63,3 +66,4 @@ def negative_img(image):
             s = negative(pixel)
             img_neg[i][j] = s
     return img_neg
+

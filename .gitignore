@@ -1,0 +1,7 @@
+module.txt
+__pycache__/
+__init__.py
+*.pyc
+*.pyo
+labwork_utils.egg-info/
+setup.py
