@@ -37,4 +37,10 @@ plt.imshow(img2, cmap='gray')
 plt.savefig("a2.png")
 
 # Median filter
+img2_cop = img2.copy()
+img2_cop[1,1] = np.mean(img2)
+cv2.imshow('Median', img2_cop)
+cv2.waitKey()
+cv2.destroyAllWindows()
 
+# Laplacian cho âm lớn -> trừ : pixel nổi bật/ sắc hơn
